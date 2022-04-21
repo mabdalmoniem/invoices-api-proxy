@@ -14,4 +14,4 @@ use App\Http\Controllers\Api\V1\TwilioApiProxyController;
 |
 */
 
-Route::get('/twilio-invoice', TwilioApiProxyController::class);
+Route::get('/twilio-invoice', TwilioApiProxyController::class)->name('twilio.invoice');
