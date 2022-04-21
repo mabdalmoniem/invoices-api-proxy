@@ -26,6 +26,8 @@ class TwilioInvoiceRequest extends FormRequest
         return [
             'start_date' => ['date', 'date_format:Y-m-d', 'before_or_equal:start_date'],
             'end_date' => ['date', 'date_format:Y-m-d', 'after_or_equal:start_date'],
+            'calls_inbound_fee' => ['numeric', 'gte:0'],
+            'sms_inbound_longcode_fee' => ['numeric', 'gte:0'],
         ];
     }
 }
