@@ -13,6 +13,8 @@ class TwilioApiProxyController extends Controller
         // We can can inject an interface that will resolve the right service, instead of instantiating it ourselves
         // but for simple apps (where we don't need to swap implementation at run time) this will work just fine
         $result = (new TwilioInvoiceService($request->only(['account_number', 'start_date', 'end_date', 'calls_inbound_fee', 'sms_inbound_longcode_fee'])))->getUsage();
+
+        // If needed, we can add a layer of caching to cache the response
         return response()->json(['data' => $result->getData()], $result->getStatusCode());
     }
 }
